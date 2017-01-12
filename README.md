@@ -59,6 +59,7 @@ Start ``ipython`` and search catalog
 $ conda info --env
 $ source activate astroconda
 (astroconda)$ ipython
+
 In [1]: from astroquery.vizier import Vizier
 ```
 
