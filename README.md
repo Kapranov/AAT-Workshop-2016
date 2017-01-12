@@ -59,11 +59,10 @@ Start ``ipython`` and search catalog
 $ conda info --env
 $ source activate astroconda
 (astroconda)$ ipython
-
-In [1]: from astroquery.vizier import Vizier
 ```
 
 ```python
+In [1]: from astroquery.vizier import Vizier
 In [2]: cat_list = Vizier.get_catalogs('J/MNRAS/437/1070/sample')
 In [3]: cat = cat_list[0]
 
