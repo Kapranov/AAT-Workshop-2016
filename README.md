@@ -78,7 +78,7 @@ In [9]: plt.show()
 
 Save image to ``figure_1.png``
 
-### 10 Jan 2017 Oleg G.Kapranov
+### 10 Jan 2017 [Oleg G.Kapranov](mailto:lugatex@yahoo.com)
 
 [1]: https://archive.gemini.edu
 [2]:
