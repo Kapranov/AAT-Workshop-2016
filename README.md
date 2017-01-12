@@ -47,8 +47,9 @@ $ conda create -n astroconda stsci
 
 $ source activate astroconda
 $ pip search Astroquery
-$ pip install Astroquery
 astroquery (0.3.4)  - Functions and classes to access online data resources
+
+$ pip install Astroquery
 $ source deactivate astroconda
 ```
 
