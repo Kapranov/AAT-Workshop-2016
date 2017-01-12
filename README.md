@@ -1,4 +1,5 @@
-# AAT Observational Techniques Workshop 2016: Data Archives Notes.
+# AAT Observational Techniques Workshop 2016
+## Data Archives Notes.
 
 Notes available at http://tinyurl.com/otws-db
 
