@@ -53,6 +53,30 @@ $ pip install Astroquery
 $ source deactivate astroconda
 ```
 
+Start ``ipython`` and search catalog
+
+```bash
+$ conda info --env
+$ source activate astroconda
+(astroconda)$ ipython
+In [1]: from astroquery.vizier import Vizier
+```
+
+```python
+In [2]: cat_list = Vizier.get_catalogs('J/MNRAS/437/1070/sample')
+In [3]: cat = cat_list[0]
+
+In [4]: cat.colnames
+In [5]: cat['logLIHa']
+In [6]: cat['Mgas']
+
+In [7]: import matplotlib.pyplot as plt
+In [8]: plt.scatter(cat['Mgas'], cat['logLIHa'])
+In [9]: plt.show()
+```
+
+Save image to ``figure_1.png``
+
 [1]: https://archive.gemini.edu
 [2]:
 http://vizier.u-strasbg.fr/viz-bin/VizieR-2?-ref=VIZ5727fab821b6&-to=2&-from=-2&-this=-2&%2F%2Fsource=&-out.max=50&%2F%2FCDSportal=&-out.form=HTML+Table&-out.add=_r&-out.add=_RAJ%2C_DEJ&%2F%2Foutaddvalue=&-sort=_r&-order=I&-oc.form=sexa&-meta.foot=1&-meta=1&-meta.ucd=2&-source=Green+2014&%21-2%3B=+Find...+&-ucd=&%2F%2Fucdform=on&-c=&-c.eq=J2000&-c.r=++2&-c.u=arcmin&-c.geom=r&-sort=_r&-order=I&-sort=_r&-order=I&-meta.ucd=2&-usenav=1&-bmark=GET
