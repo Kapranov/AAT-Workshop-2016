@@ -1,7 +1,7 @@
 # AAT Observational Techniques Workshop 2016
 ### Data Archives Notes.
 
-> What is a data archive? - Vizier
+What is a data archive? - Vizier
 
 ## Vizier
 
@@ -19,11 +19,17 @@ Type numbers into python from the paper? \*Ridiculous!!!\*
 * Search "Green 2014"
 
 Catalog appears (name is J/MNRAS/437/1070) in [search results][2].
+
 Looking at the catalogs available, it looks like we want the "sample"
 catalog.
 
 We could download this file in some format, and then parse it into
 python...or we could just see if python can get the data directly.
+
+## Connecting to Vizier using a ``script/program``
+
+Search "Vizier API" on Google. Looks like there is a python [package
+called "Astroquery"][4] that can directly query Vizier.
 
 [1]: https://archive.gemini.edu
 [2]:
