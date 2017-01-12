@@ -1,9 +1,9 @@
 # AAT Observational Techniques Workshop 2016
-## Data Archives Notes.
+### Data Archives Notes.
 
-Notes available at http://tinyurl.com/otws-db
+> What is a data archive? - Vizier
 
-> Vizier
+## Vizier
 
 Interested in the paper Green et al., [MNRAS 437, 1070
 (2014)](http://adsabs.harvard.edu/abs/2014MNRAS.437.1070G).
@@ -15,14 +15,15 @@ Type numbers into python from the paper? \*Ridiculous!!!\*
 
 ## Use Vizier to retrieve tabular data for published papers
 
-Go to Vizier!
-
-Search "Green 2014"
+* Go to Vizier!
+* Search "Green 2014"
 
 Catalog appears (name is J/MNRAS/437/1070) in [search results][2].
 Looking at the catalogs available, it looks like we want the "sample"
 catalog.
 
+We could download this file in some format, and then parse it into
+python...or we could just see if python can get the data directly.
 
 [1]: https://archive.gemini.edu
 [2]:
