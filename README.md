@@ -1,7 +1,7 @@
 # AAT Observational Techniques Workshop 2016
 ### Data Archives Notes.
 
-What is a data archive? - Vizier
+What is a data archive - Vizier?
 
 ## Vizier
 
@@ -48,6 +48,7 @@ $ conda create -n astroconda stsci
 $ source activate astroconda
 $ pip search Astroquery
 $ pip install Astroquery
+astroquery (0.3.4)  - Functions and classes to access online data resources
 $ source deactivate astroconda
 ```
 
