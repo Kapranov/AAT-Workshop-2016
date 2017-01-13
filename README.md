@@ -78,6 +78,13 @@ In [9]: plt.show()
 
 Save image to ``figure_1.png``
 
+## VizieR Queries (astroquery.vizier)
+
+Astroquery is a set of tools for querying astronomical web forms and
+databases. There are two other packages with complimentary functionality
+as Astroquery: [astropy.vo][7]  is in the Astropy core and [pyvo][8] is
+an Astropy affiliated package. They are more oriented to general
+
 ### 10 Jan 2017 [Oleg G.Kapranov](mailto:lugatex@yahoo.com)
 
 [1]: https://archive.gemini.edu
@@ -90,3 +97,5 @@ https://archive.gemini.edu/searchform/cols=CTOWEQ/notengineering/NIFS/ra=22:17:3
 [5]: https://www.continuum.io/downloads
 [6]:
 http://astroconda.readthedocs.io/en/latest/installation.html#obtain-anaconda
+[7]: http://docs.astropy.org/en/latest/vo/index.html
+[8]: https://pyvo.readthedocs.io/en/latest/
