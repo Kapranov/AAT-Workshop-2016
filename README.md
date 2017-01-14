@@ -378,6 +378,19 @@ This illustrates finding the spectral type of some particular star.
 'M6III'
 ```
 
+## Example #4
+
+```python
+>>> from astroquery.simbad import Simbad
+>>> customSimbad = Simbad()
+>>> customSimbad.add_votable_fields('ra(d)','dec(d)')
+>>> customSimbad.remove_votable_fields('coordinates')
+>>> from astropy import coordinates
+>>> C = coordinates.SkyCoord(0,0,unit=('deg','deg'), frame='icrs')
+>>> result = customSimbad.query_region(C, radius='2 degrees')
+>>> result[:5].pprint()
+```
+
 ### 10 Jan 2017 [Oleg G.Kapranov](mailto:lugatex@yahoo.com)
 
 [1]: https://archive.gemini.edu
