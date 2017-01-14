@@ -146,14 +146,6 @@ To access an individual table from the [TableList][10] object:
 ```python
 >>> interesting_table = result['IX/10A/cor_ros']
 >>> print(interesting_table)
-
-_RAJ2000 _DEJ2000   _r       _1RXS       Rank ... e_Count  roff       Com         IncDate   UpdDate
-  deg      deg     arcm                       ...          arcm                   "Y:M:D"   "Y:M:D"
--------- -------- ----- ---------------- ---- ... -------- ---- ---------------- ---------- -------
-101.2885 -16.7119 0.264 J064509.3-164241    2 ...     0.03  1.6           160058 1999-02-15
-101.2854 -16.7174 0.127 J064509.3-164241   14 ...     0.02  1.3 UK200422FP_N1_P1 1999-02-15
-101.3156 -16.7339 1.952 J064509.3-164241   20 ...    0.002  2.4           160058 1999-02-15
-
 ```
 
 To do some common processing to all the tables in the returned
