@@ -458,6 +458,53 @@ for fn in m83files:
     vcube.write('M83_ALMA_{linename}.fits'.format(linename=linename))
 ```
 
+## Example #7
+
+Find ALMA pointings that have been observed toward M83, then overplot
+the various fields-of view on a 2MASS image retrieved from SkyView. See
+[http://nbviewer.ipython.org/gist/keflavich/19175791176e8d1fb204][25]
+for the notebook. There is an even more sophisticated version at
+[http://nbviewer.ipython.org/gist/keflavich/bb12b772d6668cf9181a][26],
+which shows Orion KL in all observed bands.
+
+```python
+```
+
+## Example #8
+
+Retrieve data from a particular co-I or PI from the ESO archive
+
+```python
+from astroquery.eso import Eso
+
+# log in so you can get proprietary data
+Eso.login('aginsburg')
+# make sure you don't filter out anything
+Eso.ROW_LIMIT = 1e6
+
+# List all of your pi/co projects
+all_pi_proj = Eso.query_instrument('apex', pi_coi='ginsburg')
+
+# Have a look at the project IDs only
+print(set(all_pi_proj['APEX Project ID']))
+# set(['E-095.F-9802A-2015', 'E-095.C-0242A-2015', 'E-093.C-0144A-2014'])
+
+# The full project name includes prefix and suffix
+full_proj = 'E-095.F-9802A-2015'
+proj_id = full_proj[2:-6]
+
+# Then get the APEX quicklook "reduced" data
+tbl = Eso.query_apex_quicklooks(prog_id=proj_id)
+
+# and finally, download it
+files = Eso.retrieve_data(tbl['Product ID'])
+
+# then move the files to your local directory
+# note that there is no .TAR suffix... not sure why this is
+import shutil
+for fn in files:
+  shutil.move(fn+'.TAR','.')
+```
 
 ### 10 Jan 2017 [Oleg G.Kapranov](mailto:lugatex@yahoo.com)
 
@@ -485,3 +532,5 @@ for fn in m83files:
 [22]: http://astroquery.readthedocs.io/en/latest/api/astroquery.vizier.Conf.html#astroquery.vizier.Conf
 [23]: http://astroquery.readthedocs.io/en/latest/vizier/vizier.html#module-astroquery.vizier
 [24]: http://astroquery.readthedocs.io/en/latest/api/astroquery.simbad.SimbadClass.html#astroquery.simbad.SimbadClass.list_votable_fields
+[25]: http://nbviewer.ipython.org/gist/keflavich/19175791176e8d1fb204
+[26]: http://nbviewer.ipython.org/gist/keflavich/bb12b772d6668cf9181a
