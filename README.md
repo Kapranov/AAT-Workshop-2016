@@ -348,7 +348,6 @@ wavelength & object type, although only object type is shown here.
 >>> result = v.query_region(c, radius=2*u.deg)
 >>> print len(result)
 43
-
 >>> result[0].pprint()
 ```
 
@@ -363,6 +362,20 @@ This illustrates adding new output fields to SIMBAD queries. Run
 >>> s.add_votable_fields('bibcodelist(2003-2013)')
 >>> r = s.query_object('m31')
 >>> r.pprint()
+```
+## Example #3
+
+This illustrates finding the spectral type of some particular star.
+
+```python
+>>> from astroquery.simbad import Simbad
+>>> customSimbad = Simbad()
+>>> customSimbad.add_votable_fields('sptype')
+>>> result = customSimbad.query_object('g her')
+>>> result['MAIN_ID'][0]
+'* g Her'
+>>> result['SP_TYPE'][0]
+'M6III'
 ```
 
 ### 10 Jan 2017 [Oleg G.Kapranov](mailto:lugatex@yahoo.com)
