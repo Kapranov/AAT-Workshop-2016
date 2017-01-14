@@ -717,6 +717,132 @@ for fn in files:
   shutil.move(fn+'.TAR','.')
 ```
 
+# Available Services
+
+The following modules have been completed using a common API:
+
+* [SIMBAD Queries (astroquery.simbad)][30]
+* [VizieR Queries (astroquery.vizier)][31]
+* [ESASky Queries (astroquery.esasky)][32]
+* [IRSA Dust Extinction Service Queries (astroquery.irsa_dust)][33]
+* [NED Queries (astroquery.ned)][34]
+* [Splatalogue Queries (astroquery.splatalogue)][35]
+* [Vamdc Queries (astroquery.vamdc)][36]
+* [IRSA Image Server program interface (IBE) Queries (astroquery.ibe)][37]
+* [IRSA Queries (astroquery.irsa)][38]
+* [UKIDSS Queries (astroquery.ukidss)][39]
+* [1MAGPIS Queries (astroquery.magpis)][40]
+* [NRAO Queries (astroquery.nrao)][41]
+* [Besancon Queries (astroquery.besancon)][42]
+* [NIST Queries (astroquery.nist)][43]
+* [NVAS Queries (astroquery.nvas)][44]
+* [GAMA Queries (astroquery.gama)][45]
+* [ESO Queries (astroquery.eso)][46]
+* [xMatch Queries (astroquery.xmatch)][47]
+* [Atomic Line List (astroquery.atomic)][48]
+* [ALMA Queries (astroquery.alma)][49]
+* [Skyview Queries (astroquery.skyview)][50]
+* [NASA ADS Queries (astroquery.nasa_ads)][51]
+* [HEASARC Queries (astroquery.heasarc)][52]
+
+These others are functional, but do not follow a common & consistent
+API:
+
+* [Fermi Queries (astroquery.fermi)][53]
+* [SDSS Queries (astroquery.sdss)][54]
+* [ALFALFA Queries (astroquery.alfalfa)][55]
+* [Spitzer Heritage Archive (astroquery.sha)][56]
+* [LAMDA Queries (astroquery.lamda)][57]
+* [OGLE Queries (astroquery.ogle)][58]
+* [Open Exoplanet Catalogue(astroquery.open_exoplanet_catalogue)][59]
+* [CosmoSim Queries (astroquery.cosmosim)][60]
+* [HITRAN Queries (astroquery.hitran)][61]
+
+# Catalog, Archive, and Other
+
+A second index of the services by the type of data they serve. Some
+services perform many tasks and are listed more than once.
+
+## Catalogs
+
+The first serve catalogs, which generally return one row of information
+for each source (though they may return many catalogs that each have one
+row for each source)
+
+* [ALFALFA Queries (astroquery.alfalfa)][62]
+* [GAMA Queries (astroquery.gama)][63]
+* [IRSA Image Server program interface (IBE) Queries (astroquery.ibe)][64]
+* [IRSA Queries (astroquery.irsa)][65]
+* [IRSA Dust Extinction Service Queries (astroquery.irsa_dust)][66]
+* [NED Queries (astroquery.ned)][67]
+* [OGLE Queries (astroquery.ogle)][68]
+* [Open Exoplanet Catalogue(astroquery.open_exoplanet_catalogue)][69]
+* [SDSS Queries (astroquery.sdss)][70]
+* [Spitzer Heritage Archive (astroquery.sha)][71]
+* [SIMBAD Queries (astroquery.simbad)][72]
+* [UKIDSS Queries (astroquery.ukidss)][73]
+* [VizieR Queries (astroquery.vizier)][74]
+* [xMatch Queries (astroquery.xmatch)][75]
+
+## Archives
+
+Archive services provide data, usually in FITS images or spectra. They
+will generally return a table listing the available data first.
+
+* [ALFALFA Queries (astroquery.alfalfa)][76]
+* [ALMA Queries (astroquery.alma)][77]
+* [ESO Queries (astroquery.eso)][78]
+* [Fermi Queries (astroquery.fermi)][79]
+* [HEASARC Queries (astroquery.heasarc)][80]
+* [IRSA Image Server program interface (IBE) Queries (astroquery.ibe)][81]
+* [IRSA Queries (astroquery.irsa)][82]
+* [MAGPIS Queries (astroquery.magpis)][83]
+* [NED Queries (astroquery.ned)][84]
+* [NRAO Queries (astroquery.nrao)][85]
+* [NVAS Queries (astroquery.nvas)][86]
+* [SDSS Queries (astroquery.sdss)][87]
+* [Spitzer Heritage Archive (astroquery.sha)][88]
+* [UKIDSS Queries (astroquery.ukidss)][89]
+* [Skyview Queries (astroquery.skyview)][90]
+
+## Simulations
+
+Simulation services query databases of simulated or synthetic data
+
+* [Besancon Queries (astroquery.besancon)][91]
+* [CosmoSim Queries (astroquery.cosmosim)][92]
+
+## Other
+
+There are other astronomically significant services, e.g. line list and
+atomic/molecular cross section and collision rate services, that don’t
+fit the above categories.
+
+* [Atomic Line List (astroquery.atomic)][93]
+* [LAMDA Queries (astroquery.lamda)][94]
+* [NIST Queries (astroquery.nist)][95]
+* [Splatalogue Queries (astroquery.splatalogue)][96]
+* [NASA ADS Queries (astroquery.nasa_ads)][97]
+* [Vamdc Queries (astroquery.vamdc)][98]
+* [HITRAN Queries (astroquery.hitran)][99]
+
+## Developer documentation
+
+The [Astroquery API Specification][100] is intended to be kept as consistent as
+possible, such that any web service can be used with a minimal learning
+curve imposed on the user.
+
+* [Astroquery API Specification][100]
+* [Template Module][101]
+* [Astroquery Testing][102]
+
+The following Astroquery modules are mostly meant for internal use of
+services in Astroquery, you can use them for your scripts, but we don’t
+guarantee API stability.
+
+* [Astroquery utils (astroquery.utils)][103]
+* [Astroquery query (astroquery.query)][104]
+
 ### 10 Jan 2017 [Oleg G.Kapranov](mailto:lugatex@yahoo.com)
 
 [1]: https://archive.gemini.edu
@@ -745,3 +871,78 @@ for fn in files:
 [24]: http://astroquery.readthedocs.io/en/latest/api/astroquery.simbad.SimbadClass.html#astroquery.simbad.SimbadClass.list_votable_fields
 [25]: http://nbviewer.ipython.org/gist/keflavich/19175791176e8d1fb204
 [26]: http://nbviewer.ipython.org/gist/keflavich/bb12b772d6668cf9181a
+[30]: http://astroquery.readthedocs.io/en/latest/simbad/simbad.html
+[31]: http://astroquery.readthedocs.io/en/latest/vizier/vizier.html
+[32]: http://astroquery.readthedocs.io/en/latest/esasky/esasky.html
+[33]: http://astroquery.readthedocs.io/en/latest/irsa/irsa_dust.html
+[34]: http://astroquery.readthedocs.io/en/latest/ned/ned.html
+[35]: http://astroquery.readthedocs.io/en/latest/splatalogue/splatalogue.html
+[36]: http://astroquery.readthedocs.io/en/latest/vamdc/vamdc.html
+[37]: http://astroquery.readthedocs.io/en/latest/ibe/ibe.html
+[38]: http://astroquery.readthedocs.io/en/latest/irsa/irsa.html
+[39]: http://astroquery.readthedocs.io/en/latest/ukidss/ukidss.html
+[40]: http://astroquery.readthedocs.io/en/latest/magpis/magpis.html
+[41]: http://astroquery.readthedocs.io/en/latest/nrao/nrao.html
+[42]: http://astroquery.readthedocs.io/en/latest/besancon/besancon.html
+[43]: http://astroquery.readthedocs.io/en/latest/nist/nist.html
+[44]: http://astroquery.readthedocs.io/en/latest/nvas/nvas.html
+[45]: http://astroquery.readthedocs.io/en/latest/gama/gama.html
+[46]: http://astroquery.readthedocs.io/en/latest/eso/eso.html
+[47]: http://astroquery.readthedocs.io/en/latest/xmatch/xmatch.html
+[48]: http://astroquery.readthedocs.io/en/latest/atomic/atomic.html
+[49]: http://astroquery.readthedocs.io/en/latest/alma/alma.html
+[50]: http://astroquery.readthedocs.io/en/latest/skyview/skyview.html
+[51]: http://astroquery.readthedocs.io/en/latest/nasa_ads/nasa_ads.html
+[52]: http://astroquery.readthedocs.io/en/latest/heasarc/heasarc.html
+[53]: http://astroquery.readthedocs.io/en/latest/fermi/fermi.html
+[54]: http://astroquery.readthedocs.io/en/latest/sdss/sdss.html
+[55]: http://astroquery.readthedocs.io/en/latest/alfalfa/alfalfa.html
+[56]: http://astroquery.readthedocs.io/en/latest/sha/sha.html
+[57]: http://astroquery.readthedocs.io/en/latest/lamda/lamda.html
+[58]: http://astroquery.readthedocs.io/en/latest/ogle/ogle.html
+[59]: http://astroquery.readthedocs.io/en/latest/open_exoplanet_catalogue/open_exoplanet_catalogue.html
+[60]: http://astroquery.readthedocs.io/en/latest/cosmosim/cosmosim.html
+[61]: http://astroquery.readthedocs.io/en/latest/hitran/hitran.html
+[62]: http://astroquery.readthedocs.io/en/latest/alfalfa/alfalfa.html
+[63]: http://astroquery.readthedocs.io/en/latest/gama/gama.html
+[64]: http://astroquery.readthedocs.io/en/latest/ibe/ibe.html
+[65]: http://astroquery.readthedocs.io/en/latest/irsa/irsa.html
+[66]: http://astroquery.readthedocs.io/en/latest/irsa/irsa_dust.html
+[67]: http://astroquery.readthedocs.io/en/latest/irsa/irsa_dust.html
+[68]: http://astroquery.readthedocs.io/en/latest/ogle/ogle.html
+[69]: http://astroquery.readthedocs.io/en/latest/open_exoplanet_catalogue/open_exoplanet_catalogue.html
+[70]: http://astroquery.readthedocs.io/en/latest/sdss/sdss.html
+[71]: http://astroquery.readthedocs.io/en/latest/sha/sha.html
+[72]: http://astroquery.readthedocs.io/en/latest/simbad/simbad.html
+[73]: http://astroquery.readthedocs.io/en/latest/ukidss/ukidss.html
+[74]: http://astroquery.readthedocs.io/en/latest/vizier/vizier.html
+[75]: http://astroquery.readthedocs.io/en/latest/xmatch/xmatch.html
+[76]: http://astroquery.readthedocs.io/en/latest/alfalfa/alfalfa.html
+[77]: http://astroquery.readthedocs.io/en/latest/alma/alma.html
+[78]: http://astroquery.readthedocs.io/en/latest/eso/eso.html
+[79]: http://astroquery.readthedocs.io/en/latest/fermi/fermi.html
+[80]: http://astroquery.readthedocs.io/en/latest/heasarc/heasarc.html
+[81]: http://astroquery.readthedocs.io/en/latest/ibe/ibe.html
+[82]: http://astroquery.readthedocs.io/en/latest/irsa/irsa.html
+[83]: http://astroquery.readthedocs.io/en/latest/magpis/magpis.html
+[84]: http://astroquery.readthedocs.io/en/latest/ned/ned.html
+[85]: http://astroquery.readthedocs.io/en/latest/nrao/nrao.html
+[86]: http://astroquery.readthedocs.io/en/latest/nvas/nvas.html
+[87]: http://astroquery.readthedocs.io/en/latest/sdss/sdss.html
+[88]: http://astroquery.readthedocs.io/en/latest/sha/sha.html
+[89]: http://astroquery.readthedocs.io/en/latest/ukidss/ukidss.html
+[90]: http://astroquery.readthedocs.io/en/latest/skyview/skyview.html
+[91]: http://astroquery.readthedocs.io/en/latest/besancon/besancon.html
+[92]: http://astroquery.readthedocs.io/en/latest/cosmosim/cosmosim.html
+[93]: http://astroquery.readthedocs.io/en/latest/atomic/atomic.html
+[94]: http://astroquery.readthedocs.io/en/latest/lamda/lamda.html
+[95]: http://astroquery.readthedocs.io/en/latest/nist/nist.html
+[96]: http://astroquery.readthedocs.io/en/latest/splatalogue/splatalogue.html
+[97]: http://astroquery.readthedocs.io/en/latest/nasa_ads/nasa_ads.html
+[98]: http://astroquery.readthedocs.io/en/latest/vamdc/vamdc.html
+[99]: http://astroquery.readthedocs.io/en/latest/hitran/hitran.html
+[100]: http://astroquery.readthedocs.io/en/latest/api.html
+[101]: http://astroquery.readthedocs.io/en/latest/template.html
+[102]: http://astroquery.readthedocs.io/en/latest/testing.html
+[103]: http://astroquery.readthedocs.io/en/latest/utils.html
+[104]: http://astroquery.readthedocs.io/en/latest/query.html
