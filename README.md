@@ -391,6 +391,22 @@ This illustrates finding the spectral type of some particular star.
 >>> result[:5].pprint()
 ```
 
+## Example #5
+
+This illustrates a simple usage of the ``open_exoplanet_catalogue`` module.
+Finding the mass of a specific planet:
+
+```python
+>>> from astroquery import open_exoplanet_catalogue as oec
+>>> from astroquery.open_exoplanet_catalogue import findvalue
+>>> cata = oec.get_catalogue()
+>>> kepler68b = cata.find(".//planet[name='Kepler-68 b']")
+>>> print findvalue( kepler68b, 'mass')
+0.026 +0.008 -0.007
+```
+
+
+
 ### 10 Jan 2017 [Oleg G.Kapranov](mailto:lugatex@yahoo.com)
 
 [1]: https://archive.gemini.edu
