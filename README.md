@@ -394,6 +394,36 @@ published in A&AS 143, 23
 
 [Conf][22] Configuration parameters for [astroquery.vizier][23].
 
+# A Gallery of Queries
+
+A series of queries folks have performed for research or for kicks.
+
+## Example #1
+
+This illustrates querying Vizier with specific keyword, and the use of
+[astropy.coordinates][15] to describe a query. Vizier’s keywords can indicate
+wavelength & object type, although only object type is shown here.
+
+```python
+>>> from astroquery.vizier import Vizier
+>>> v = Vizier(keywords=['stars:white_dwarf'])
+>>> from astropy import coordinates
+>>> from astropy import units as u
+>>> c = coordinates.SkyCoord(0,0,unit=('deg','deg'),frame='icrs')
+>>> result = v.query_region(c, radius=2*u.deg)
+>>> print len(result)
+43
+
+>>> result[0].pprint()
+
+_RAJ2000 _DEJ2000   _r      LP    ...
+  deg      deg     deg            ...
+-------- -------- ------ -------- ...
+  1.4896   0.3081 1.5182 584-0063 ...
+358.3100   0.8347 1.8874 643-0083 ...
+359.1611  -1.2627 1.5134 584-0030 ...
+```
+
 ### 10 Jan 2017 [Oleg G.Kapranov](mailto:lugatex@yahoo.com)
 
 [1]: https://archive.gemini.edu
@@ -419,4 +449,3 @@ published in A&AS 143, 23
 [21]: http://astroquery.readthedocs.io/en/latest/api/astroquery.vizier.VizierClass.html#astroquery.vizier.VizierClass
 [22]: http://astroquery.readthedocs.io/en/latest/api/astroquery.vizier.Conf.html#astroquery.vizier.Conf
 [23]: http://astroquery.readthedocs.io/en/latest/vizier/vizier.html#module-astroquery.vizier
-
