@@ -391,6 +391,7 @@ published in A&AS 143, 23
 ### Classes
 
 [Vizier Class][21]([columns, column_filters, ...])
+
 [Conf][22] Configuration parameters for [astroquery.vizier][23].
 
 ### 10 Jan 2017 [Oleg G.Kapranov](mailto:lugatex@yahoo.com)
