@@ -352,6 +352,19 @@ wavelength & object type, although only object type is shown here.
 >>> result[0].pprint()
 ```
 
+## Example #2
+
+This illustrates adding new output fields to SIMBAD queries. Run
+[list_votable_fields][24] to get the full list of valid fields.
+
+```python
+>>> from astroquery.simbad import Simbad
+>>> s = Simbad()
+>>> s.add_votable_fields('bibcodelist(2003-2013)')
+>>> r = s.query_object('m31')
+>>> r.pprint()
+```
+
 ### 10 Jan 2017 [Oleg G.Kapranov](mailto:lugatex@yahoo.com)
 
 [1]: https://archive.gemini.edu
@@ -377,3 +390,4 @@ wavelength & object type, although only object type is shown here.
 [21]: http://astroquery.readthedocs.io/en/latest/api/astroquery.vizier.VizierClass.html#astroquery.vizier.VizierClass
 [22]: http://astroquery.readthedocs.io/en/latest/api/astroquery.vizier.Conf.html#astroquery.vizier.Conf
 [23]: http://astroquery.readthedocs.io/en/latest/vizier/vizier.html#module-astroquery.vizier
+[24]: http://astroquery.readthedocs.io/en/latest/api/astroquery.simbad.SimbadClass.html#astroquery.simbad.SimbadClass.list_votable_fields
