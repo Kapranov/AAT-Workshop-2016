@@ -78,6 +78,103 @@ In [9]: plt.show()
 
 Save image to ``figure_1.png``
 
+## Gemini Archive
+
+### Simple data retrieval
+
+Interested in downloading some raw data from the archive. I want NIFS
+data on the galaxy "GDDS 22-2172" at RA 22:17:39.85, DEC +00:15:26.42.
+
+Go to the [Gemini Archive][105]
+
+Type in details to find data. Hit Search. [Results view][106] appears
+below search fields
+
+* Files available to download.
+* link to download all (selected) at the bottom of the page
+* Permanent link to this data.
+
+### Using the API
+
+Now what if I want to get data automatically, e.g. as part of an
+automated data reduction pipeline?
+
+Look at the [Help][108]. Under "Accessing the Archive from scripts
+and the command line", there is a link to the [API Help][109].
+
+Scroll down to find Python script
+
+Copy and paste it to ipython.
+
+Paste into editor and edit to match our program:
+
+```python
+import urllib
+import json
+
+# Construct the URL. We'll use the jsonfilelist service
+url = "https://archive.gemini.edu/jsonsummary/"
+
+# List the files for GN-2010B-Q-22 taken with GMOS-N on 2010-12-31
+url += "GN-2008A-Q-18/GMOS-N/NIFS/20090828/science/GDDS-22-2172"
+
+# Open the URL and fetch the JSON document text into a string
+u = urllib.urlopen(url)
+jsondoc = u.read()
+u.close()
+
+# Decode the JSON
+files = json.loads(jsondoc)
+
+# This is a list of dictionaries each containing info about a file
+total_data_size = 0
+print "%20s %22s %10s %8s %s" % ("Filename", "Data Label", "ObsClass",
+                                 "QA state", "Object Name")
+for f in files:
+  total_data_size += f['data_size']
+  print "%20s %22s %10s %8s %s" % (f['name'], f['data_label'],
+                                   f['observation_class'],
+                                   f['qa_state'],
+                                   f['object'])
+
+print "Total data size: %d" % total_data_size
+```
+
+Paste updates into python.
+
+### Open a FITS file from the archive directly in python
+
+Look at download URL from the web page.
+
+Looks something like
+[https://archive.gemini.edu/file/N20090828S0182.fits][109]
+
+So we just need the filename to download the file.
+
+The previous script has created a ``files`` variable, which we can use
+to get the filenames of our files. Lets see if we can open one of the
+files directly in python.
+
+```python
+a_filename = files[0]['name']
+
+response = urllib.urlopen(
+  "http://archive.gemini.edu/file/" + a_filename
+)
+
+fits_bytes = response.read()
+response.close()
+
+from io import BytesIO
+from astropy.io import fits
+
+f = fits.open(BytesIO(fits_bytes))
+f.info()
+f[0].header
+f[1].data.shape
+plt(f[1].data, clim=(0,500), interpolation='nearest')
+```
+
 ## VizieR Queries (astroquery.vizier)
 
 Astroquery is a set of tools for querying astronomical web forms and
@@ -843,7 +940,7 @@ guarantee API stability.
 * [Astroquery utils (astroquery.utils)][103]
 * [Astroquery query (astroquery.query)][104]
 
-### 10 Jan 2017 [Oleg G.Kapranov](mailto:lugatex@yahoo.com)
+### 15 Jan 2017 [Oleg G.Kapranov](mailto:lugatex@yahoo.com)
 
 [1]: https://archive.gemini.edu
 [2]: http://vizier.u-strasbg.fr/viz-bin/VizieR-2?-ref=VIZ5727fab821b6&-to=2&-from=-2&-this=-2&%2F%2Fsource=&-out.max=50&%2F%2FCDSportal=&-out.form=HTML+Table&-out.add=_r&-out.add=_RAJ%2C_DEJ&%2F%2Foutaddvalue=&-sort=_r&-order=I&-oc.form=sexa&-meta.foot=1&-meta=1&-meta.ucd=2&-source=Green+2014&%21-2%3B=+Find...+&-ucd=&%2F%2Fucdform=on&-c=&-c.eq=J2000&-c.r=++2&-c.u=arcmin&-c.geom=r&-sort=_r&-order=I&-sort=_r&-order=I&-meta.ucd=2&-usenav=1&-bmark=GET
@@ -946,3 +1043,8 @@ guarantee API stability.
 [102]: http://astroquery.readthedocs.io/en/latest/testing.html
 [103]: http://astroquery.readthedocs.io/en/latest/utils.html
 [104]: http://astroquery.readthedocs.io/en/latest/query.html
+[105]: https://archive.gemini.edu/
+[106]: https://archive.gemini.edu/searchform/cols=CTOWEQ/notengineering/NIFS/ra=22:17:39.85/dec=+00:15:26.42/NotFail
+[107]: https://archive.gemini.edu/help/index.html
+[108]: https://archive.gemini.edu/help/api.html
+[109]: https://archive.gemini.edu/file/N20090828S0182.fits
