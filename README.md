@@ -218,6 +218,63 @@ Filename: N20101231S0343.fits.bz2
 -- file size: 21018470, data size: 57548160
 ```
 
+### More details of the files using jsonsummary
+
+Similar to the example above, but getting more details about the
+observations using the jsonsummary API.
+
+```python
+#!/usr/bin/env python
+
+import urllib
+import json
+
+# Construct the URL. We'll use the jsonsummary service
+url = "https://archive.gemini.edu/jsonsummary/"
+
+# List the OBJECT files taken with GMOS-N on 2017-1-11
+url += "canonical/OBJECT/GMOS-N/20101231"
+
+# Open the URL and fetch the JSON document text into a string
+u = urllib.urlopen(url)
+jsondoc = u.read()
+u.close()
+
+# Decode the JSON
+files = json.loads(jsondoc)
+
+# This is a list of dictionaries each containing info about a file
+total_data_size = 0
+print "%20s %22s %10s %8s %s" % ("Filename", "Data Label",
+                                 "ObsClass",
+                                 "QA state", "Object Name")
+for f in files:
+    total_data_size += f['data_size']
+    print "%20s %22s %10s %8s %s" % (f['name'], f['data_label'],
+                                     f['observation_class'],
+                                     f['qa_state'], f['object'])
+
+print "Total data size: %d" % total_data_size
+```
+
+the following output:
+
+```bash
+...
+...
+...
+N20101231S0421.fits  GN-CAL20101231-12-015     dayCal     Pass Twilight
+N20101231S0422.fits  GN-CAL20101231-12-016     dayCal     Pass Twilight
+N20101231S0423.fits  GN-CAL20101231-12-017     dayCal     Pass Twilight
+N20101231S0424.fits  GN-CAL20101231-12-018     dayCal     Pass Twilight
+N20101231S0425.fits  GN-CAL20101231-12-019     dayCal     Pass Twilight
+N20101231S0426.fits  GN-CAL20101231-12-020     dayCal     Pass Twilight
+N20101231S0427.fits  GN-CAL20101231-12-021     dayCal     Pass Twilight
+N20101231S0428.fits  GN-CAL20101231-12-022     dayCal     Pass Twilight
+Total data size: 1856059200
+
+```
+
 ## VizieR Queries (astroquery.vizier)
 
 Astroquery is a set of tools for querying astronomical web forms and
