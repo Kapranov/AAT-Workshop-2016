@@ -175,6 +175,49 @@ f[1].data.shape
 plt(f[1].data, clim=(0,500), interpolation='nearest')
 ```
 
+### Example Gemini Simple file list using jsonfilelist
+
+```python
+import urllib
+import json
+
+# Construct the URL. We'll use the jsonfilelist service
+url = "https://archive.gemini.edu/jsonfilelist/"
+
+# List the files for GN-2010B-Q-22 taken with GMOS-N on 2010-12-31
+url += "canonical/GN-2010B-Q-22/GMOS-N/20101231"
+
+# Open the URL and fetch the JSON document text into a string
+u = urllib.urlopen(url)
+jsondoc = u.read()
+u.close()
+
+# Decode the JSON
+files = json.loads(jsondoc)
+
+# This is a list of dictionaries each containing info about a file
+for f in files:
+    print "Filename: %s" % f['filename']
+    print "-- file size: %d, data size: %d" % (f['file_size'], f['data_size'])
+```
+
+and outlet result:
+
+```bash
+Filename: N20101231S0338.fits.bz2
+-- file size: 21314852, data size: 57548160
+Filename: N20101231S0339.fits.bz2
+-- file size: 21130627, data size: 57548160
+Filename: N20101231S0340.fits.bz2
+-- file size: 21022898, data size: 57548160
+Filename: N20101231S0341.fits.bz2
+-- file size: 21154419, data size: 57548160
+Filename: N20101231S0342.fits.bz2
+-- file size: 21086479, data size: 57548160
+Filename: N20101231S0343.fits.bz2
+-- file size: 21018470, data size: 57548160
+```
+
 ## VizieR Queries (astroquery.vizier)
 
 Astroquery is a set of tools for querying astronomical web forms and
